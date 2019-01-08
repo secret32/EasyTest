@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * @author pc
  */
-@FeignClient(name = "EchoServer")
+@FeignClient(name = "EchoServer", fallback = WorkFallbackServiceImpl.class)
 public interface IWorkService {
 
     /**
