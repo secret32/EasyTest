@@ -22,7 +22,7 @@ public class WorkJob {
     @Autowired
     private AmqpTemplate rabbitmqTemplate;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 2000)
     public void work() {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("name", "Wall");
@@ -31,7 +31,7 @@ public class WorkJob {
         rabbitmqTemplate.convertAndSend(EXCHANGE_WORKER, ROUTE_KEY_WORKER, jsonObj.toJSONString());
     }
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 1000)
     public void log() {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("name", "Lucy");
@@ -52,7 +52,7 @@ public class WorkJob {
         }
     }
 
-    @Scheduled(fixedRate = 8000)
+    @Scheduled(fixedRate = 3000)
     public void broadcast() {
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("name", "Bruce");

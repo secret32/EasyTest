@@ -5,7 +5,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-@RabbitListener(queues = {RabbitConfig.QUEUE_WORKER})
+@RabbitListener(queues = {RabbitConfig.QUEUE_WORKER}, containerFactory = "containerFactory")
 @Slf4j
 @Component
 public class WorkerReceiver {
