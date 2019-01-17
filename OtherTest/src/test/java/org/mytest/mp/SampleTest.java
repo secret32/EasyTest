@@ -23,7 +23,9 @@ public class SampleTest {
 
     @Test
     public void testSelect() {
-        List<User> userList = userMapper.selectList(null);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("age", 99);
+        List<User> userList = userMapper.selectList(queryWrapper);
         Assert.assertEquals(5, userList.size());
         userList.forEach(System.out::println);
     }
