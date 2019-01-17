@@ -1,11 +1,8 @@
 package org.mytest.springcloud.zuul;
 
 import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author pc
@@ -29,9 +26,7 @@ public class MyFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        RequestContext requestContext = RequestContext.getCurrentContext();
-        HttpServletRequest request = requestContext.getRequest();
-        log.info(request.getRequestURI());
+        log.info("my filter");
         return null;
     }
 }
