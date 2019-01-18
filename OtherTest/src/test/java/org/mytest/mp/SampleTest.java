@@ -32,11 +32,12 @@ public class SampleTest {
 
     @Test
     public void testSelectPage() {
-        IPage<User> userPage = new Page<>(1, 5);
+        IPage<User> userPage = new Page<>(1, 50);
         userPage.setPages(1);
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
 //    queryWrapper.select("name", "age");
-        queryWrapper.likeLeft("email", "test");
+//        queryWrapper.likeLeft("email", "test");
+        queryWrapper.orderByAsc("case when age=24 then 1 else 2 end", "age", "name");
         userPage = userMapper.selectPage(userPage, queryWrapper);
         System.out.println("pages: " + userPage.getPages());
         userPage.getRecords().forEach(System.out::println);
