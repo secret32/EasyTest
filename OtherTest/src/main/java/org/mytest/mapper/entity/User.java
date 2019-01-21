@@ -1,4 +1,4 @@
-package org.mytest.mp.entity;
+package org.mytest.mapper.entity;
 
 import lombok.Data;
 

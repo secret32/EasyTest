@@ -1,4 +1,4 @@
-package org.mytest.mp.aop.aspect;
+package org.mytest.aop.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class MyAspect {
 
-    private final String bizPkg = "org.mytest.mp.aop.biz";
+    private final String bizPkg = "org.mytest.aop.biz";
     private final String biz = "execution(* " + bizPkg + "..*.*(..))";
 
-    private final String odsPkg = "org.mytest.mp.aop.ods";
+    private final String odsPkg = "org.mytest.aop.ods";
     private final String ods = "execution(* " + odsPkg + "..*.*(..))";
 
-    private final String basePkg = "org.mytest.mp.aop.base.impl";
+    private final String basePkg = "org.mytest.aop.base.impl";
     private final String baseAspect = "execution(* " + basePkg + "..*.*(..))";
 
     @Pointcut(biz)

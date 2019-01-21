@@ -1,22 +1,17 @@
-package org.mytest.mp;
+package org.mytest;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mytest.mp.entity.User;
-import org.mytest.mp.mapper.UserMapper;
+import org.mytest.mapper.UserMapper;
+import org.mytest.mapper.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SampleTest {
+public class MyBatisPlusTest extends SpringBootBaseTest {
 
     @Autowired
     private UserMapper userMapper;

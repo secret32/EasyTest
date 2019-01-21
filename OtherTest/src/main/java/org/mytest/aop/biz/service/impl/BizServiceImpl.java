@@ -1,7 +1,7 @@
-package org.mytest.mp.aop.biz.service.impl;
+package org.mytest.aop.biz.service.impl;
 
-import org.mytest.mp.aop.base.impl.BaseServiceImpl;
-import org.mytest.mp.aop.biz.service.BizService;
+import org.mytest.aop.base.impl.BaseServiceImpl;
+import org.mytest.aop.biz.service.BizService;
 import org.springframework.stereotype.Service;
 
 @Service

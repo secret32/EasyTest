@@ -1,7 +1,7 @@
-package org.mytest.mp.mapper;
+package org.mytest.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.mytest.mp.entity.User;
+import org.mytest.mapper.entity.User;
 
 /**
  * @author pc

@@ -1,6 +1,6 @@
-package org.mytest.mp.aop.base.impl;
+package org.mytest.aop.base.impl;
 
-import org.mytest.mp.aop.base.BaseService;
+import org.mytest.aop.base.BaseService;
 
 public class BaseServiceImpl implements BaseService {
     @Override

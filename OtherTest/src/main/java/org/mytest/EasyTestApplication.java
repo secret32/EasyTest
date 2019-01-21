@@ -1,4 +1,4 @@
-package org.mytest.mp;
+package org.mytest;
 
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
 /**
  * @author pc
  */
-@MapperScan("org.mytest.mp.mapper")
+@MapperScan("org.mytest.mapper")
 @SpringBootApplication
 @Configuration
 public class EasyTestApplication {

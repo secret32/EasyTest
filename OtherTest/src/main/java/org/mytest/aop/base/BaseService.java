@@ -1,4 +1,4 @@
-package org.mytest.mp.aop.base;
+package org.mytest.aop.base;
 
 public interface BaseService {
 

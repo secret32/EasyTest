@@ -1,6 +1,6 @@
-package org.mytest.mp.aop.ods.service;
+package org.mytest.aop.ods.service;
 
-import org.mytest.mp.aop.base.BaseService;
+import org.mytest.aop.base.BaseService;
 
 public interface OdsService extends BaseService {
 

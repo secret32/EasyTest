@@ -1,6 +1,6 @@
-package org.mytest.mp.aop.biz.service;
+package org.mytest.aop.biz.service;
 
-import org.mytest.mp.aop.base.BaseService;
+import org.mytest.aop.base.BaseService;
 
 public interface BizService extends BaseService {
 
