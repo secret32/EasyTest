@@ -1,5 +1,6 @@
 package org.mytest.springcloud;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,8 +17,10 @@ public class EchoController {
 
     @GetMapping("/hello/{name}")
     public String hello(@PathVariable String name) {
-        log.info("name: {}", name);
-        return "hello, " + name;
+        JSONObject jsonObj = new JSONObject();
+        jsonObj.put("name", name);
+        jsonObj.put("time", System.currentTimeMillis());
+        return jsonObj.toJSONString();
     }
 
 }
