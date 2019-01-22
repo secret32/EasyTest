@@ -24,7 +24,11 @@ public class EsTest extends SpringBootBaseTest {
 
     @Test
     public void testFindByName() {
-        fileService.findByName("DictControllerTest.java").forEach(System.out::println);
+        fileService.findByName("Controller").forEach(System.out::println);
+    }
+
+    public void testDeleteAll() {
+        fileService.deleteAllIndex();
     }
 
 }

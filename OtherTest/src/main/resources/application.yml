@@ -13,5 +13,4 @@ logging:
   level:
     org:
       mytest:
-        mp:
-          mapper: debug
+        mapper: debug

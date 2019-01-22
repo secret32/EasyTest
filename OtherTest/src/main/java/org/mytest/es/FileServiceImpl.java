@@ -40,7 +40,6 @@ public class FileServiceImpl implements FileService {
         indexedFile.setDescription("");
         indexedFile.setType("file");
         indexedFile.setModifier("test");
-        indexedFile.setModTime("now");
         try {
             indexedFile.setMd5(DigestUtils.md5Hex(Files.readAllBytes(file.toPath())));
         } catch (IOException e) {
@@ -61,5 +60,10 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<IndexedFile> findByName(String name) {
         return repository.findByName(name);
+    }
+
+    @Override
+    public void deleteAllIndex() {
+        repository.deleteAll();
     }
 }

@@ -11,4 +11,6 @@ public interface FileService {
 
     public List<IndexedFile> findByName(String name);
 
+    public void deleteAllIndex();
+
 }
