@@ -1,7 +1,7 @@
 package org.mytest;
 
 import org.junit.Test;
-import org.mytest.es.FileService;
+import org.mytest.es.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
@@ -13,7 +13,7 @@ public class EsTest extends SpringBootBaseTest {
 
     @Test
     public void testIndex() {
-        File file = new File("C:\\sec\\git\\bak\\fdc\\fdc-admin\\src\\test\\java");
+        File file = new File("E:\\sec");
         fileService.index(file);
     }
 
@@ -27,6 +27,12 @@ public class EsTest extends SpringBootBaseTest {
         fileService.findByName("Controller").forEach(System.out::println);
     }
 
+    @Test
+    public void testFindByContent() {
+        fileService.findByContent("流程").forEach(System.out::println);
+    }
+
+    @Test
     public void testDeleteAll() {
         fileService.deleteAllIndex();
     }

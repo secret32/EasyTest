@@ -1,4 +1,4 @@
-package org.mytest.es;
+package org.mytest.es.entity;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -13,27 +13,22 @@ import org.springframework.data.elasticsearch.annotations.Mapping;
 public class IndexedFile {
 
     @Id
+    @Field(index = false)
     private String id;
 
     @Field(type = FieldType.Text, analyzer = "ik_smart", searchAnalyzer = "ik_smart")
     private String name;
 
-    @Field(type = FieldType.Text, analyzer = "ik_smart", searchAnalyzer = "ik_smart")
-    private String description;
+    @Field(type = FieldType.Keyword)
+    private String dir;
 
-    @Field(type = FieldType.Text)
-    private String type;
+    @Field(type = FieldType.Integer)
+    private Integer type;
 
     @Field(type = FieldType.Text, analyzer = "ik_smart", searchAnalyzer = "ik_smart")
     private String content;
 
-    @Field(type = FieldType.Text, analyzer = "ik_smart", searchAnalyzer = "ik_smart")
-    private String author;
-
-    @Field(type = FieldType.Text)
+    @Field(type = FieldType.Keyword)
     private String md5;
-
-    @Field(type = FieldType.Text)
-    private String modifier;
 
 }
