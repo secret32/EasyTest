@@ -24,12 +24,13 @@ public class EsTest extends SpringBootBaseTest {
 
     @Test
     public void testFindByName() {
-        fileService.findByName("Controller").forEach(System.out::println);
+//        fileService.findByName("month").forEach(System.out::println);
+        fileService.findByName("V求").forEach(System.out::println);
     }
 
     @Test
     public void testFindByContent() {
-        fileService.findByContent("流程").forEach(System.out::println);
+        fileService.findByContent("后台").forEach(System.out::println);
     }
 
     @Test

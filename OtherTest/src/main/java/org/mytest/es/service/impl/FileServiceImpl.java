@@ -3,6 +3,8 @@ package org.mytest.es.service.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
+import org.elasticsearch.index.query.TermQueryBuilder;
+import org.elasticsearch.index.query.WildcardQueryBuilder;
 import org.mytest.es.entity.IndexedFile;
 import org.mytest.es.repo.FileRepository;
 import org.mytest.es.service.FileService;
@@ -15,9 +17,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Slf4j
 @Service
@@ -101,14 +103,20 @@ public class FileServiceImpl implements FileService {
     @Override
     public List<IndexedFile> findAll() {
         Iterable<IndexedFile> it = fileRepository.findAll();
-        List<IndexedFile> list = new ArrayList<>();
-        it.forEach(list::add);
-        return list;
+        return StreamSupport.stream(it.spliterator(), false).collect(Collectors.toList());
     }
 
     @Override
     public List<IndexedFile> findByName(String name) {
-        return fileRepository.findByName(name);
+        WildcardQueryBuilder wildcardQueryBuilder = new WildcardQueryBuilder("name",
+                "*" + name + "*");
+        Iterable<IndexedFile> it = fileRepository.search(wildcardQueryBuilder);
+        TermQueryBuilder termQueryBuilder = new TermQueryBuilder("name.ik", name);
+        Iterable<IndexedFile> it2 = fileRepository.search(termQueryBuilder);
+        Set<IndexedFile> set = new LinkedHashSet<>();
+        it.forEach(set::add);
+        it2.forEach(set::add);
+        return new ArrayList<>(set);
     }
 
     @Override
